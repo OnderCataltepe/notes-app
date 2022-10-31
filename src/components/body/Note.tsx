@@ -16,24 +16,28 @@ import DeleteConfirm from '../modals/DeleteConfirm';
 interface NProps {
   item: NoteData;
 }
+
 const Note = ({ item }: NProps): JSX.Element => {
   const bodyInputRef = useRef<HTMLInputElement>(null);
-
   const [updateToggle, setUpdateToggle] = useState<boolean>(false);
   const [deleteToggle, setDeleteToggle] = useState<boolean>(false);
   const [titleValue, setTitleValue] = useState<string>('');
   const [bodyValue, setBodyValue] = useState<string>('');
   const dispatch = useAppDispatch();
   const theme = useTheme();
+
   const updateHandler = (): void => {
     setUpdateToggle(!updateToggle);
   };
+
   const deleteHandler = (): void => {
     setDeleteToggle(() => true);
   };
+
   const titleUpdate = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setTitleValue(() => event.target.value);
   };
+
   const bodyUpdate = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setBodyValue(() => event.target.value);
   };
@@ -41,14 +45,17 @@ const Note = ({ item }: NProps): JSX.Element => {
   useEffect(() => {
     dispatch(updateNote({ ...item, title: titleValue }));
   }, [titleValue]);
+
   useEffect(() => {
     dispatch(updateNote({ ...item, body: bodyValue }));
   }, [bodyValue]);
+
   useEffect(() => {
     if (updateToggle) {
       bodyInputRef?.current?.focus();
     }
   }, [updateToggle]);
+
   return (
     <Card sx={{ width: '100%' }}>
       <CardContent

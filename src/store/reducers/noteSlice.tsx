@@ -7,6 +7,7 @@ export interface NoteData {
   createdDate: string;
   modifiedDate: string;
 }
+
 export interface NoteState {
   values: NoteData[];
 }

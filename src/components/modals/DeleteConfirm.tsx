@@ -6,11 +6,13 @@ import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { useAppDispatch } from '../../store/hooks/reduxHooks';
 import { deleteNote } from '../../store/reducers/noteSlice';
+
 interface DialogProps {
   noteId: string;
   open: boolean;
   onClose: () => void;
 }
+
 const DeleteConfirm = ({ noteId, open, onClose }: DialogProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
@@ -18,6 +20,7 @@ const DeleteConfirm = ({ noteId, open, onClose }: DialogProps): JSX.Element => {
     dispatch(deleteNote(noteId));
     onClose();
   };
+
   return (
     <Dialog
       sx={{ '& .MuiDialog-paper': { width: '50%', maxHeight: 435 } }}

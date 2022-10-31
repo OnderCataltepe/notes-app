@@ -12,6 +12,7 @@ const DarkMode = (): JSX.Element => {
     localStorage.setItem('theme', JSON.stringify(!dark));
     dispatch(themeToggle());
   };
+
   return (
     <Box sx={{ p: 2, textAlign: 'right' }}>
       <IconButton onClick={changeTheme} size="large" aria-label="change mode">

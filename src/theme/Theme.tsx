@@ -10,6 +10,7 @@ const breakpoints = {
     xl: 1536
   }
 };
+
 const baseTheme = createTheme({
   ...breakpoints,
   typography: {
@@ -85,6 +86,7 @@ const lightTheme = createTheme({
 type ThemeProps = {
   children: JSX.Element;
 };
+
 const Theme = ({ children }: ThemeProps) => {
   const theme = useAppSelector((state) => state.theme.dark);
   return <ThemeProvider theme={theme ? darkTheme : lightTheme}>{children}</ThemeProvider>;

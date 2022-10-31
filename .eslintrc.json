@@ -24,7 +24,8 @@
     "quotes": ["error", "single"],
     "no-duplicate-imports": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "off",
+    "linebreak-style": ["error", "windows"]
   },
   "settings": {
     "import/resolver": {
@@ -32,3 +33,4 @@
     }
   }
 }
+
